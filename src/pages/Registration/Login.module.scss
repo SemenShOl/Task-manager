@@ -1,0 +1,46 @@
+.wrapper {
+  overflow-y: hidden;
+  // background-color: red;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.root {
+  width: 400px;
+  padding: 20px;
+  border: 1px solid #dedede;
+  margin: 50px auto;
+
+}
+
+.field {
+  margin-bottom: 20px !important;
+}
+
+.title {
+  text-align: center !important;
+  font-weight: bold !important;
+  margin-bottom: 30px !important;
+}
+
+.avatar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.createAccount {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  button {
+    padding: 5px 25px;
+  }
+
+
+}

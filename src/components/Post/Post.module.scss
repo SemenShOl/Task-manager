@@ -1,0 +1,106 @@
+$blue: #F7ACCF;
+@import '../../styles/colors.module.scss';
+
+.root {
+  background-color: #fff;
+  border: 1px solid #dedede;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 15px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 2px 2px 4px 0px rgba(34, 60, 80, 0.1);
+
+  &:hover {
+    border: 1px solid $blue;
+    box-shadow: 0 0 0 1px $blue;
+
+    .editButtons {
+      opacity: 1;
+    }
+  }
+
+}
+
+
+
+
+.wrapper {
+  padding: 10px 0px;
+}
+
+.content {
+  // margin: 30px 0 50px;
+
+  p {
+    font-size: 22px;
+    line-height: 36px;
+  }
+}
+
+.indention {
+  padding-left: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  font-size: 28px;
+  margin: 0;
+
+  a {
+    text-decoration: none;
+    color: #000;
+
+    &:hover {
+      color: $blue;
+    }
+  }
+
+
+}
+
+
+.postDetails {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0 0;
+
+  li {
+    display: inline-flex;
+    align-items: center;
+    font-size: 14px;
+    margin-right: 20px;
+    opacity: 0.5;
+
+    svg {
+      font-size: 18px;
+      margin-right: 5px;
+    }
+  }
+}
+
+
+
+
+.editButtons {
+  position: relative;
+  right: 15px;
+  // top: -15px;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 10px;
+
+  // opacity: 0;
+  // transition: all 0.15s ease-in-out;
+  .deleteButton {
+    color: $blue;
+
+    &:hover {
+      background-color: #f1f1f1;
+      color: $blue;
+    }
+  }
+}

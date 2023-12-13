@@ -1,0 +1,35 @@
+@import "../../../styles/colors.module.scss";
+
+
+.wrapper {
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 12px rgb(0, 0, 0, 0.15);
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 300px;
+    cursor: pointer;
+    overflow: hidden;
+
+    .checkAndPWrapper {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    &.active {
+        opacity: 0.45;
+        background-color: rgb(248, 248, 248);
+
+    }
+
+}
+
+.description {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    color: $right;
+    margin-top: 3px;
+}

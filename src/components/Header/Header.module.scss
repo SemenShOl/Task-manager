@@ -1,0 +1,72 @@
+.root {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 100%;
+  background-color: #ffffff;
+  padding: 10px 0;
+  border-bottom: 1px solid #e0e0e0;
+  box-shadow: 2px 2px 4px 0px rgba(34, 60, 80, 0.15);
+  z-index: 200;
+}
+
+.inner {
+  padding: 5px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+
+
+.accountInfo {
+  display: flex;
+  flex-direction: column;
+
+  .userInfo {
+    margin-bottom: 10px;
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    button {
+      padding: 4px 3px;
+    }
+
+  }
+}
+
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .menu_item {
+    display: flex;
+    padding: 5px;
+    gap: 10px;
+    align-items: center;
+    border-radius: 4px;
+    color: #676767;
+
+    span {
+      font-size: 18px;
+    }
+
+    &:hover {
+      background-color: #f1f1f1;
+      cursor: pointer;
+    }
+  }
+}
+
+a {
+  list-style: none;
+  list-style-type: none;
+  text-decoration: none;
+}
