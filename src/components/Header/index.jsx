@@ -7,6 +7,8 @@ import { logout } from "../../redux/slices/auth";
 import { clearPosts } from "../../redux/slices/posts";
 import { TbNotes } from "react-icons/tb";
 import { MdTaskAlt } from "react-icons/md";
+import { FaCalendarAlt } from "react-icons/fa";
+import { clearTodos } from "../../redux/slices/todos";
 export const Header = () => {
   const navigate = useNavigate();
   const isAuth = useSelector((state) => !!state.auth.data);
@@ -17,6 +19,7 @@ export const Header = () => {
     if (ans) {
       dispatch(logout());
       dispatch(clearPosts());
+      dispatch(clearTodos());
       navigate("/login");
     }
   };
@@ -42,6 +45,10 @@ export const Header = () => {
           <Link to="/todos" className={styles.menu_item}>
             <MdTaskAlt size={25} />
             <span>Задачи</span>
+          </Link>
+          <Link to="/calendar" className={styles.menu_item}>
+            <FaCalendarAlt size={25} />
+            <span>Календарь</span>
           </Link>
         </div>
       </div>

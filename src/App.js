@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchAuthMe } from "./redux/slices/auth";
 import { MainContainer } from "./components/MainContainer/MainContainer";
 import { TodosHome } from "./pages/TodosHome/TodosHome";
+import { CalendarPage } from "./pages/Calendar/CalendaPager";
 
 function App() {
   const dispatch = useDispatch();
@@ -22,7 +23,8 @@ function App() {
       {/* {isAuth ? <Header /> : null} */}
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/todos" element={<TodosHome />} />
+        <Route path="/calendar" element={<CalendarPage />} />
+        <Route path="/todos/:date" element={<TodosHome />} />
         <Route path="/posts/:id" element={<FullPost />} />
         <Route path="/posts/:id/edit" element={<AddPost />} />
         <Route path="/addpost" element={<AddPost />} />

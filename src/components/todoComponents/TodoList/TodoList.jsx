@@ -9,12 +9,12 @@ const TodoList = ({ todos, onChangeTodos, deleteTodo }) => {
     <div className={cl.wrapper}>
       {todos.map((todo) => (
         <Todo
-          onChangeTodoComplete={() => onChangeTodos(todo.id)}
-          onDeleteTodo={() => deleteTodo(todo.id)}
-          key={todo.id}
+          onChangeTodoComplete={() => onChangeTodos(todo._id)}
+          onDeleteTodo={() => deleteTodo(todo._id)}
+          key={todo._id}
           title={todo.title}
-          id={todo.id}
-          complteted={todo.complteted}
+          id={todo._id}
+          complteted={todo.completed}
         />
       ))}
     </div>

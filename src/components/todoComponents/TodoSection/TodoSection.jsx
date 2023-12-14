@@ -1,26 +1,17 @@
 import React, { useState } from "react";
 import TodoList from "../TodoList/TodoList";
 import { TaskInput } from "../TaskInput/TaskInput";
-import Todo from "../Todo/Todo";
 import { TodoFilters } from "../TodoFilters/TodoFilters";
-import { v1 } from "uuid";
 import cl from "./TodoSection.module.scss";
+import { useDispatch } from "react-redux";
+import { fetchRemoveTodo, fetchAddTodo } from "../../../redux/slices/todos";
+import { useParams } from "react-router-dom";
 
-export const TodoSection = () => {
-  const [todos, setTodos] = useState([
-    {
-      id: v1(),
-      title: "Купить хлеб",
-      complteted: false,
-    },
-    {
-      id: v1(),
-      title: "Купить колбасы",
-      complteted: false,
-    },
-  ]);
+export const TodoSection = ({ todos }) => {
   const [filter, setFilter] = useState("all");
-
+  const params = useParams();
+  const dispatch = useDispatch();
+  console.log(todos);
   const filteredTodos = (() => {
     switch (filter) {
       case "active":
@@ -32,26 +23,26 @@ export const TodoSection = () => {
     }
   })();
 
-  const onChangeTodos = (id) => {
-    setTodos(
-      todos.map((todo) =>
-        todo.id === id ? { ...todo, complteted: !todo.complteted } : todo
-      )
-    );
-  };
+  // const onChangeTodos = (id) => {
+  //   setTodos(
+  //     todos.map((todo) =>
+  //       todo.id === id ? { ...todo, complteted: !todo.complteted } : todo
+  //     )
+  //   );
+  // };
   const addTodo = (text) =>
     text.trim() !== ""
-      ? setTodos([
-          ...todos,
-          {
-            id: v1(),
+      ? dispatch(
+          fetchAddTodo({
             title: text,
-            complteted: false,
-          },
-        ])
+            text: "",
+            completed: false,
+            date: params.date,
+          })
+        )
       : undefined;
 
-  const deleteTodo = (id) => setTodos(todos.filter((todo) => todo.id !== id));
+  const deleteTodo = (id) => dispatch(fetchRemoveTodo(id));
 
   return (
     <div className={cl.wrapper}>
@@ -60,7 +51,7 @@ export const TodoSection = () => {
       <TodoList
         todos={filteredTodos}
         deleteTodo={deleteTodo}
-        onChangeTodos={onChangeTodos}
+        // onChangeTodos={onChangeTodos}
       />
       <TodoFilters filter={filter} setFilter={setFilter} />
     </div>

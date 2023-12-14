@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { useState } from "react";
 import cl from "./Todo.module.scss";
 import { Checkbox } from "../UI/Checkbox/Checkbox";
 import cn from "classnames";

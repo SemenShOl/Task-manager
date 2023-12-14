@@ -36,10 +36,6 @@ export const AddPost = () => {
     func();
   }, []);
 
-  const handleChangeFile = () => {};
-
-  const onClickRemoveImage = () => {};
-
   const onChange = React.useCallback((value) => {
     setText(value);
   }, []);

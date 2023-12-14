@@ -6,6 +6,7 @@ import cl from "./TaskInput.module.scss";
 export const TaskInput = ({ addTodo }) => {
   const [value, setValue] = useState("");
   const onAddTodo = () => {
+    console.log("input value: ", value);
     addTodo(value);
     setValue("");
   };

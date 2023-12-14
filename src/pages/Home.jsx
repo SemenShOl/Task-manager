@@ -26,20 +26,6 @@ export const Home = () => {
       >
         <Grid xs={8} item></Grid>
       </Grid>
-      {/* {isPostsLoading ? (
-        <CircularProgress />
-      ) : (
-        posts.items.map((obj, index) => (
-          <Post
-            _id={obj._id}
-            title={obj.title}
-            user={{
-              fullName: obj.user.fullName,
-            }}
-            isEditable
-          />
-        ))
-      )} */}
     </>
   );
 };
