@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "../../axios.js";
+import { alignProperty } from "@mui/material/styles/cssUtils.js";
 const initialState = {
   items: [],
   status: "loading",
@@ -36,6 +37,17 @@ export const fetchAddTodo = createAsyncThunk(
     console.log(todoFields);
     try {
       const { data } = await axios.post(`/todos`, todoFields);
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
+export const fetchCompleteTodo = createAsyncThunk(
+  "todos/fetchCompleteTodo",
+  async (reqBody) => {
+    try {
+      const { data } = await axios.patch(`/todos`, reqBody);
       return data;
     } catch (error) {
       console.log(error);
@@ -89,6 +101,23 @@ const todosSlice = createSlice({
       state.status = "loaded";
     },
     [fetchAddTodo.rejected]: (state) => {
+      state.items = [];
+      state.status = "error";
+    },
+
+    //complete
+    [fetchCompleteTodo.pending]: (state) => {
+      state.status = "loading";
+    },
+    [fetchCompleteTodo.fulfilled]: (state, action) => {
+      state.items = state.items.map((todo) =>
+        todo._id === action.payload._id
+          ? { ...todo, completed: !todo.completed }
+          : todo
+      );
+      state.status = "loaded";
+    },
+    [fetchCompleteTodo.rejected]: (state) => {
       state.items = [];
       state.status = "error";
     },

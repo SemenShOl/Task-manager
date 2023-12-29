@@ -4,7 +4,11 @@ import { TaskInput } from "../TaskInput/TaskInput";
 import { TodoFilters } from "../TodoFilters/TodoFilters";
 import cl from "./TodoSection.module.scss";
 import { useDispatch } from "react-redux";
-import { fetchRemoveTodo, fetchAddTodo } from "../../../redux/slices/todos";
+import {
+  fetchRemoveTodo,
+  fetchAddTodo,
+  fetchCompleteTodo,
+} from "../../../redux/slices/todos";
 import { useParams } from "react-router-dom";
 
 export const TodoSection = ({ todos }) => {
@@ -23,13 +27,10 @@ export const TodoSection = ({ todos }) => {
     }
   })();
 
-  // const onChangeTodos = (id) => {
-  //   setTodos(
-  //     todos.map((todo) =>
-  //       todo.id === id ? { ...todo, complteted: !todo.complteted } : todo
-  //     )
-  //   );
-  // };
+  const onCompleteTodos = (id) => {
+    const newValue = !todos.find((todo) => todo._id === id).completed;
+    dispatch(fetchCompleteTodo({ id, newValue }));
+  };
   const addTodo = (text) =>
     text.trim() !== ""
       ? dispatch(
@@ -48,12 +49,14 @@ export const TodoSection = ({ todos }) => {
     <div className={cl.wrapper}>
       {/* <h2>TodoList</h2> */}
       <TaskInput addTodo={addTodo} />
+      <TodoFilters filter={filter} setFilter={setFilter} />
+
       <TodoList
         todos={filteredTodos}
         deleteTodo={deleteTodo}
         // onChangeTodos={onChangeTodos}
+        onCompleteTodos={onCompleteTodos}
       />
-      <TodoFilters filter={filter} setFilter={setFilter} />
     </div>
   );
 };

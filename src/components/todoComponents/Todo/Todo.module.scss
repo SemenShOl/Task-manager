@@ -16,7 +16,9 @@
     .checkAndPWrapper {
         display: flex;
         flex-direction: row;
-        gap: 10px;
+        align-items: center;
+        // justify-content: center;
+        gap: 15px;
     }
 
     &.active {
@@ -25,11 +27,24 @@
 
     }
 
+    .cross {
+        color: $right;
+        font-size: 24px;
+        transition: all .1s ease-in-out;
+        text-align: center;
+
+        &:hover {
+            transition: all .1s ease-in-out;
+            color: $left;
+
+        }
+    }
+
 }
 
 .description {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
     color: $right;
-    margin-top: 3px;
+    padding: 0;
 }

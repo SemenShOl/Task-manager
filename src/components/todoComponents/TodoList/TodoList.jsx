@@ -4,12 +4,12 @@ import Todo from "../Todo/Todo";
 import { TaskInput } from "../TaskInput/TaskInput";
 import { TodoObject, TodoProps } from "../Todo/Todo";
 
-const TodoList = ({ todos, onChangeTodos, deleteTodo }) => {
+const TodoList = ({ todos, onCompleteTodos, deleteTodo }) => {
   return (
     <div className={cl.wrapper}>
       {todos.map((todo) => (
         <Todo
-          onChangeTodoComplete={() => onChangeTodos(todo._id)}
+          onChangeTodoComplete={() => onCompleteTodos(todo._id)}
           onDeleteTodo={() => deleteTodo(todo._id)}
           key={todo._id}
           title={todo.title}

@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import cl from "./Todo.module.scss";
 import { Checkbox } from "../UI/Checkbox/Checkbox";
 import cn from "classnames";
-import { Cross } from "../icons/Cross";
-
+import { RxCross2 } from "react-icons/rx";
 const Todo = ({
   title,
   id,
@@ -19,7 +18,7 @@ const Todo = ({
         <Checkbox onClick={onChangeTodoComplete} completed={complteted} />
         <p className={cl.description}>{title}</p>
       </div>
-      <Cross onClick={onDeleteTodo} />
+      <RxCross2 className={cl.cross} onClick={onDeleteTodo} />
     </div>
   );
 };
